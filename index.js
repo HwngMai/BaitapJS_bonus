@@ -70,8 +70,52 @@ function reversedNum(num) {
 }
 document.getElementById("btnBai5").onclick = function () {
   var num = document.getElementById("inputBai5").value * 1;
-  var num1 = reversedNum(num);
-  document.getElementById("ketQuaBai5").innerHTML = num1;
+  var reNum = reversedNum(num);
+  document.getElementById("ketQuaBai5").innerHTML = reNum;
+};
+//BÀI 6
+document.getElementById("btnBai6").onclick = function () {
+  var soX = 0;
+  var sum = 0;
+  for (i = 0; sum < 100; i++) {
+    sum += i;
+    soX = i - 1;
+  }
+  document.getElementById("ketQuaBai6").innerHTML = soX;
+};
+//BÀI 7
+document.getElementById("btnBai7").onclick = function () {
+  var soN = document.getElementById("inputBai7").value * 1;
+  var contentHTML = "";
+  for (i = 0; i <= 10; i++) {
+    var multi = soN * i;
+    contentHTML += ` ${soN}  *  ${i} =  ${multi} </br>`;
+  }
+  document.getElementById("ketQuaBai7").innerHTML = contentHTML;
+};
+var card = [
+  "4K",
+  "KH",
+  "5C",
+  "KA",
+  "QH",
+  "KD",
+  "2H",
+  "10S",
+  "AS",
+  "7H",
+  "9K",
+  "10D",
+];
+var p = [(p1 = []), (p2 = []), (p3 = []), (p4 = [])];
+
+//BÀI 8
+document.getElementById("btnBai8").onclick = function () {
+  for (i = 0; i <= 3; i++) {
+    var cardGo = card.pop();
+    p[i].push(cardGo);
+  }
+  document.getElementById("ketQuaBai8").innerHTML = p;
 };
 //BÀI 10
 document.getElementById("btnBai10").onclick = function () {
@@ -80,10 +124,10 @@ document.getElementById("btnBai10").onclick = function () {
   var degGio = 30 * gio;
   var degPhut = 6 * phut;
   var degCore = 0;
-  if (gio * 5 > phut) {
+  if (degGio > degPhut) {
     degCore = degGio + (phut / 60) * 30 - degPhut;
   }
-  if (gio * 5 <= phut) {
+  if (degGio <= degPhut) {
     degCore = degPhut - (degGio + (phut / 60) * 30);
   }
   document.getElementById("ketQuaBai10").innerHTML = Math.abs(degCore);
