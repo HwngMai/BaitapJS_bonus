@@ -115,7 +115,30 @@ document.getElementById("btnBai8").onclick = function () {
     var cardGo = card.pop();
     p[i].push(cardGo);
   }
-  document.getElementById("ketQuaBai8").innerHTML = p;
+  document.getElementById(
+    "ketQuaBai8"
+  ).innerHTML = `p1: ${p[0]}, p2: ${p[1]},p3: ${p[2]},p4: ${p[3]},`;
+};
+//BÀI 9
+document.getElementById("btnBai9").onclick = function () {
+  let soChan = document.getElementById("soChan").value * 1;
+  let soCon = document.getElementById("soCon").value * 1;
+  let soCho = 0;
+  let soGa = 0;
+  let flag = true;
+  if (soChan % 2 != 0) {
+    document.getElementById("ketQuaBai9").innerHTML = `Dữ liệu sai`;
+    flag = false;
+  }
+  soCho = soChan / 2 - soCon;
+  soGa = soCon - soCho;
+  if (soGa % 1 != 0 || soCho % 1 != 0 || soCho < 0 || soGa < 0) {
+    document.getElementById("ketQuaBai9").innerHTML = `Dữ liệu sai`;
+  } else {
+    document.getElementById(
+      "ketQuaBai9"
+    ).innerHTML = `Số chó là: ${soCho} - Số gà là: ${soGa}`;
+  }
 };
 //BÀI 10
 document.getElementById("btnBai10").onclick = function () {
@@ -129,6 +152,9 @@ document.getElementById("btnBai10").onclick = function () {
   }
   if (degGio <= degPhut) {
     degCore = degPhut - (degGio + (phut / 60) * 30);
+  }
+  if (degCore >= 180) {
+    degCore = 360 - degCore;
   }
   document.getElementById("ketQuaBai10").innerHTML = Math.abs(degCore);
 };
